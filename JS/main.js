@@ -9,4 +9,4 @@ function PrintTable(a,i) {
     console.log(a, " * ", i, " = ", a*i);
 }
 
-Table(2, PrintTable); //callbacks
+Table(2, PrintTable); //callbacks 
