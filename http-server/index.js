@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const port = 3000;
+const port = process.env.PORT || 3000
 const app = express();
 
 app.get("/", function(req, res) {
@@ -11,6 +11,7 @@ app.use(bodyParser.json());
 
 app.post("/conversation", function(req, res) {
     console.log(req.headers);
+    console.log(req.query.message);
     console.log(req.body);
     res.send({ 
         msg: "This is a POST request",
