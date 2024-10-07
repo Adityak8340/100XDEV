@@ -45,5 +45,66 @@
   const app = express();
   
   app.use(bodyParser.json());
-  
+
+  app.get("/", function(req, res) {
+    res.send("Hello World!");
+  });
+
+  let todos = [];
+  let id = 0;
+
+  app.get("/todos", function(req, res) {
+    res.send(todos);
+  }
+  );
+
+  app.get("/todos/:id", function(req, res) {
+    const todo = todos.find(todo => todo.id === parseInt(req.params.id));
+    if (!todo) {
+      res.status(404).send("Not Found");
+    } else {
+      res.send(todo);
+    }
+  }
+  );
+
+  app.post("/todos", function(req, res) {
+    const todo = req.body;
+    todo.id = id++;
+    todos.push(todo);
+    res.status(201).send({ id: todo.id });
+  }
+  );
+
+  app.put("/todos/:id", function(req, res) {
+    const todo = todos.find(todo => todo.id === parseInt(req.params.id));
+    if (!todo) {
+      res.status(404).send("Not Found");
+    } else {
+      const index = todos.indexOf(todo);
+      todos[index] = req.body;
+      res.send("Updated");
+    }
+  }
+  );
+
+  app.delete("/todos/:id", function(req, res) {
+    const todo = todos.find(todo => todo.id === parseInt(req.params.id));
+    if (!todo) {
+      res.status(404).send("Not Found");
+    } else {
+      const index = todos.indexOf(todo);
+      todos.splice(index, 1);
+      res.send("Deleted");
+    }
+  }
+  );
+
+  app.use(function(req, res) {
+    res.status(404).send("Not Found");
+  }
+  );
+
+  app.listen(3001);
+
   module.exports = app;

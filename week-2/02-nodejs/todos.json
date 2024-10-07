@@ -1,1 +1,30 @@
-[]
+[
+    {
+        "title": "Money",
+        "completed": false,
+        "description": "I should start earning good enough to make my family happy and satisfied."
+    },
+    {
+        "title": "Start reading Shiv Purana",
+        "completed": false,
+        "description": "I should start it soon.",
+        "id": 2
+    },
+    {
+        "title": "Money",
+        "completed": false,
+        "description": "I should start earning good enough to make my family happy and satisfied.",
+        "id": 3
+    },
+    {
+        "title": "Buy groceries",
+        "completed": "True",
+        "description": "I brought groceries"
+    },
+    {
+        "title": "Buy groceries",
+        "completed": "True",
+        "description": "I brought groceries",
+        "id": 5
+    }
+]
