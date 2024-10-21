@@ -2,7 +2,13 @@ const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 
-mongoose.connect('mongodb+srv://adityak8340:nu4Xcu9048Si5CVK@cluster0.q50rr.mongodb.net/');
+require('dotenv').config();
+
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+
 const User = new mongoose.model('Users', {
     name: String,
     email: String,
