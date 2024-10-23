@@ -62,7 +62,7 @@ function decodeJwt(token) {
     if (decoded === null) {
         return false;
     }
-    return decoded;
+    return true;
 }
 
 

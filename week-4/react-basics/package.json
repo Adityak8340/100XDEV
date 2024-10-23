@@ -1,0 +1,15 @@
+{
+  "name": "react-basics",
+  "version": "1.0.0",
+  "description": "Try to bootstrap a basic React application using vite.  Read more about vite here - https://vitejs.dev/",
+  "main": "in.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
+}
