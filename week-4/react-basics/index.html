@@ -1,24 +1,18 @@
 <html>
     <script>
-        function addNumbers() {
+        async function addNumbers() {
             var a = document.querySelector('input[placeholder="First Number"]').value;
             var b = document.querySelector('input[placeholder="Second Number"]').value;
             
-            fetch("http://localhost:3000/?a=" + a + "&b=" + b)
-                .then(response => response.text())  // Convert response to text
-                .then(sum => {
-                    document.getElementById('result').innerHTML = "Sum is: " + sum;
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    document.getElementById('result').innerHTML = "Error calculating sum";
-                });
+            const response = await fetch("http://localhost:3000/?a=" + a + "&b=" + b)
+                const  ans = await response.text();
+                document.getElementById("result").innerHTML = ans;
         }
     </script>
     <body>
-        <input type="text" placeholder="First Number" /><br />
-        <input type="text" placeholder="Second Number" /><br />
-        <button onclick="addNumbers()">Calculate sum</button><br />
+        <input oninput="addNumbers()" id = "firstNumber" type="text" placeholder="First Number" /><br />
+        <input oninput="addNumbers()" id = "secondNumber" type="text" placeholder="Second Number" /><br />
+        <!-- <button onclick="addNumbers()">Calculate sum</button><br /> -->
         <div id="result"></div>
     </body>
 </html>
