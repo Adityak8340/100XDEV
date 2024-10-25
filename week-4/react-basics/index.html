@@ -1,5 +1,11 @@
 <html>
     <script>
+        function debounce(func, wait) {
+            // delay the call of sum function by 500ms
+            setTimeout(function() {
+                addNumbers()
+            }, 10000);
+        }
         async function addNumbers() {
             var a = document.querySelector('input[placeholder="First Number"]').value;
             var b = document.querySelector('input[placeholder="Second Number"]').value;
@@ -10,8 +16,8 @@
         }
     </script>
     <body>
-        <input oninput="addNumbers()" id = "firstNumber" type="text" placeholder="First Number" /><br />
-        <input oninput="addNumbers()" id = "secondNumber" type="text" placeholder="Second Number" /><br />
+        <input oninput="debounce()" id = "firstNumber" type="text" placeholder="First Number" /><br />
+        <input oninput="debounce()" id = "secondNumber" type="text" placeholder="Second Number" /><br />
         <!-- <button onclick="addNumbers()">Calculate sum</button><br /> -->
         <div id="result"></div>
     </body>
